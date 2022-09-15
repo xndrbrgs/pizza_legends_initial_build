@@ -5,7 +5,18 @@ class Overworld {
         this.ctx = this.canvas.getContext("2d");
     }
 
+    startGameLoop() {
+        const step = () => {
+            requestAnimationFrame(() => {
+                step();
+            })
+        }
+        step();
+    }
+
     init() {
+        this.startGameLoop();
+
         console.log("Hello from the Overworld", this);
 
         // Background Map Images 
